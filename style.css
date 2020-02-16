@@ -5,7 +5,8 @@ body {
 }
 #calculator {
     width: 600px;
-    height: 520px;
+    max-width: 100%;
+    height: auto;
     background-color: ivory;
     margin: 0 auto;
     top: 20px;
