@@ -1,43 +1,48 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-  </head>
-  <body>
-
-  <!-- logo container -->
-  <div class="top">
-    <a id="logo" href="index.html">
-      <img src="https://lh6.googleusercontent.com/proxy/jt0QJiqM2xyEpevxVx6m24gCpfqzDD6FbugXhAPHG2TzyGTzyyIUremvuOig2e-Sbcvua66a43GzS7IBvC9E_T_BWnEBTa5-dBJtEbptCzkSVYB2NusZbUb0Ebz7DVMhw0mAp2sgGFuD_t0eDilbCeLwBpLr" width = 175px>
-    </a>
-  </div>
-
-  <!-- navbar container -->
-  <div class="navbar">
-    <a href="electronics.html">Electronics</a>
-    <a href="electrodomestics.html">Electrodomestics</a>
-    <a href="furniture.html">Furniture</a>
-    <a href="vehicles.html">Vehicles</a>
-    <a style="float:right" class="active" href="#about">Sign-In</a>
-    <a style="float:right" class="active" href="#about">Sign-Up</a>
-  </div>
-  <br>
-
-  <!-- image container -->
-  <div class="image-container">
-    <!-- images -->
-    <div class="myImages">
-      <img src="https://i.pinimg.com/originals/2d/9b/cd/2d9bcd94ecc4861fb3eb4d60c3130ea1.jpg" style="width:100%">
-    </div>
-    <div class="myImages">
-      <img src="https://www.guiascontenidolinio.com/wp-content/uploads/2015/08/banner-electrodomesticos.jpg" style="width:100%">
-    </div>
-    <div class="myImages">
-      <img src="https://sukidamotos.com/wp-content/uploads/2017/12/STANDARD-MOTORCYCLES-BANNER.jpg" style="width:100%">
-    </div>
-  </div>
-  <br>
-
-  </body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SENG 513 - Assignment 2</title>
+    </head>
+    <body>
+        SENG 513 - Assignment 2 (Simple Calculator)
+        <div id="calculator">
+            <div id="result">
+                <div id="history">
+                    <p id="history-value"></p>
+                </div>
+                <div id="output">
+                    <p id="output-value"></p>
+                </div>
+            </div>
+            <div id="keyboard">
+                <button class="number" id="7">7</button>
+                <button class="number" id="8">8</button>
+                <button class="number" id="9">9</button>
+                <button class="empty" id="empty"></button>
+                <button class="operator" id="clear">C</button>
+                <button class="operator" id="backspace">CE</button>
+                <button class="number" id="4">4</button>
+                <button class="number" id="5">5</button>
+                <button class="number" id="6">6</button>
+                <button class="operator" id="*">x</button>
+                <button class="operator" id="-">-</button>
+                <button class="operator" id="+">+</button>
+                <button class="number" id="1">1</button>
+                <button class="number" id="2">2</button>
+                <button class="number" id="3">3</button>
+                <button class="operator" id="/">/</button>
+                <button class="operator" id="(">(</button>
+                <button class="operator" id=")">)</button>
+                <button class="empty" id="empty"></button>
+                <button class="number" id="0">0</button>
+                <button class="number" id=".">.</button>
+                <button class="empty" id="empty"></button>                
+                <button class="empty" id="empty"></button>
+                <button class="operator" id="=">=</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>

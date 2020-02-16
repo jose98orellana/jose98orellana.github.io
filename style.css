@@ -1,58 +1,84 @@
-style.css:
-/* Top container */
-#logo {
-  float: left;
+body {
+    background-color: darkslategrey;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
 }
-.top {
-  background-color: #002967;
+#calculator {
+    width: 600px;
+    height: 520px;
+    background-color: ivory;
+    margin: 0 auto;
+    top: 20px;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-/* Navbar container */
-.navbar {
-  overflow: hidden;
-  background-color: #002967;
-  font-family: 'Nunito', sans-serif;
+#result {
+    height: 120px;
 }
-  
-/* Links inside the navbar */
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+#history {
+    text-align: right;
+    height: 20px;
+    margin: 0 20px;
+    padding-top: 20px;
+    font-size: 15px;
+    color: #919191;
 }
-  
-/* Add a red background color to navbar links on hover */
-.navbar a:hover {
-  background-color: #ECF5F4;
-  color: black;
+#output {
+    text-align: right;
+    height: 55px;
+    margin: 10px 20px;
+    font-size: 30px;
+    background-color: ivory;
+    color: black;
 }
-
-/* Image container */
-.image-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+#keyboard {
+    height: 400px;
 }
-
-/* Hide the images by default */
-.myImages {
-  display: auto;
+.operator, .number, .empty {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+    float: left;
+    border-radius: 30%;
+    border-width: 0;
+    font-weight: bold;
+    font-size: 20px;
 }
-
-/* Table */
-table.table {
-  border: 1px solid #002967;
-  background-color: #EE7E71;
-  width: 100%;
-  text-align: center;
+.number, .empty {
+    background-color: ivory;
 }
-table.table td, table.table th {
-  border: 3px solid #FFFB0D;
-  padding: 3px 2px;
+.number, .operator {
+    cursor: pointer;
 }
-table.table tr:nth-child(even) {
-  background: #ECF5F4;
+.operator:active, .number:active {
+    font-size: 13px;
+}
+.operator:focus, .number:focus, .empty:focus {
+    outline: 0;
+}
+button:nth-child(5) {
+    background-color: tomato;
+}
+button:nth-child(6) {
+    background-color: tomato;
+}
+button:nth-child(10) {
+    font-size: 25px;
+}
+button:nth-child(11) {
+    font-size: 30px;
+}
+button:nth-child(12) {
+    font-size: 25px;
+}
+button:nth-child(16) {
+    font-size: 25px;
+}
+button:nth-child(21) {
+    font-size: 30px;
+}
+button:nth-child(24) {
+    font-size: 30px;
+    background-color: lightblue;
 }
