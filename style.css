@@ -83,3 +83,21 @@ button:nth-child(24) {
     font-size: 30px;
     background-color: lightblue;
 }
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+    .empty {
+        display: none;
+    }
+    .number, .operator {
+        cursor: pointer;
+        width: auto;
+        height: auto;
+        margin: 10px;
+        float: left;
+        border-radius: 30%;
+        border-width: 0;
+        font-weight: bold;
+        font-size: 20px;
+    }
+}
