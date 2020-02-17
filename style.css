@@ -85,14 +85,4 @@ button:nth-child(24) {
 }
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
-    .operator, .number, .empty {
-        width: 30px;
-        height: 30px;
-        margin: 10px;
-        float: left;
-        border-radius: 30%;
-        border-width: 0;
-        font-weight: bold;
-        font-size: 10px;
-    }
 }
