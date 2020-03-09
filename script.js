@@ -1,61 +1,76 @@
-function getHistory() {
-    return document.getElementById("history-value").innerText;
+const socket = io('http://localhost:3000')
+const messageContainer = document.getElementById('message-container')
+var usersContainer = document.getElementById('users-container')
+const messageForm = document.getElementById('send-container')
+const messageInput = document.getElementById('message-input')
+
+var name = "user"+Math.floor((Math.random() * 100) + 1);
+var color = "#000000"
+appendMessage(`You are ${name}.`)
+socket.emit('new-user', name)
+socket.emit('color-user', color)
+
+socket.on('assign-user', name => {
+    setUsername(`${name}`)
+})
+
+socket.on('change-color', color => {
+    changeColor(`${color}`)
+})
+
+socket.on('chat-message', data => {
+    appendMessage(`${data.time} ${data.name}: ${data.message}`)
+})
+
+socket.on('user-disconnected', name => {
+    appendMessage(`${name} disconnected`)
+})
+
+socket.on('user-connected', name => {
+    appendMessage(`${name} connected`)
+})
+
+socket.on('users-connected', name => {
+    appendUser(`${name}`)
+})
+
+socket.on('remove-user', name => {
+    removeUser(`${name}`)
+})
+
+messageForm.addEventListener('submit', e => {
+    e.preventDefault()
+    const message = messageInput.value
+    var now = new Date();
+    var h = now.getHours();
+    var m = now.getMinutes();
+    if (m < 10) {m = "0"+m;}
+    var time = h+":"+m
+    var coloredName = name.fontcolor(color)
+    var preMessage = time+" "+coloredName+": "+message
+    var finalMessage = preMessage.bold()
+    appendMessage(`${finalMessage}`)
+    socket.emit('send-chat-message', message)
+    messageInput.value = ''
+})
+
+function appendMessage(message) {
+    const messageElement = document.createElement('div')
+    messageElement.innerHTML = message
+    messageContainer.append(messageElement)
 }
-function printHistory(num) {
-    document.getElementById("history-value").innerText=num;
+function appendUser(user) {
+    var userElement = document.createElement('div')
+    userElement.id = user
+    userElement.innerText = user
+    usersContainer.append(userElement)
 }
-function getOutput() {
-    return document.getElementById("output-value").innerText;
+function removeUser(user) {
+    document.getElementById(user).remove();
 }
-function printOutput(num) {
-    document.getElementById("output-value").innerText=num;
+function setUsername(username) {
+    name = username
 }
-function convertToNumber(num) {
-    if(num=="-") {
-        return "";
-    }
-    var n = Number(num);
-    return n;
-}
-var operator = document.getElementsByClassName("operator");
-for(var i=0;i<operator.length;i++){
-    operator[i].addEventListener('click',function(){
-        if(this.id=="clear") {
-            printHistory("");
-            printOutput("");
-        } else if(this.id=="backspace") {
-            var output=convertToNumber(getOutput()).toString();
-            if(output) { // if output is not empty
-                output=output.substr(0, output.length-1);
-                printOutput(output);
-            }
-        } else if(this.id=="(" || this.id==")") {
-            var output=getOutput();
-            output=output+this.id;
-            printOutput(output);
-        } else {
-            var output=getOutput();
-            if(output!="" || history!="") { // if not empty
-                if(this.id=="=") {
-                    var result=eval(output);
-                    printOutput(result);
-                } else {
-                    output=output+this.id;
-                    printOutput(output);
-                }
-            }
-        }
-    });
-}
-var number = document.getElementsByClassName("number");
-for(var i=0;i<number.length;i++){
-    number[i].addEventListener('click',function(){
-        var output=getOutput();
-        if(this.id=="." && output.includes(".")) {
-            printOutput(output);
-        } else {
-            output=output+this.id;
-            printOutput(output);
-        }
-    });
+function changeColor(newColor) {
+    color = newColor
 }
